@@ -1,0 +1,490 @@
+/* Variables globales */
+:root {
+    --color-primary: #27ae60; /* Verde esmeralda */
+    --color-secondary: #2ecc71; /* Verde más claro */
+    --color-accent: #f1c40f; /* Amarillo */
+    --color-text: #333; /* Gris oscuro */
+    --color-light: #f5f5f5; /* Gris claro */
+    --color-dark: #222; /* Negro */
+    --shadow: 0 4px 8px rgba(0, 0, 0, 0.15); /* Sombra más pronunciada */
+    --transition: all 0.3s ease-in-out; /* Transición suave */
+}
+
+/* General */
+body {
+    font-family: 'Arial', sans-serif; /* Fuente más común */
+    margin: 0;
+    padding: 0;
+    background-color: var(--color-light);
+    color: var(--color-text);
+    line-height: 1.7; /* Aumenta el espaciado entre líneas */
+}
+
+.contenedor {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Header */
+.header {
+    background: linear-gradient(rgba(40, 180, 99, 0.8), rgba(39, 174, 96, 0.8)),
+                url('../../img/volunteer-bg.jpg') center/cover;
+    min-height: 25vh; /* Aumenta la altura */
+    display: flex;
+    align-items: center;
+    text-align: center;
+    color: white;
+    position: relative;
+    padding: 2rem 0;
+    border-bottom: 5px solid var(--color-accent); /* Línea inferior llamativa */
+}
+
+.header .contenedor {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.header h1 {
+    font-size: 3rem; /* Aumenta el tamaño del título */
+    margin-bottom: 0.5rem;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3); /* Sombra en el texto */
+}
+
+.header p {
+    font-size: 1.3rem;
+    margin-bottom: 1rem;
+    font-style: italic; /* Texto en itálica */
+}
+
+/* Contenedor del botón de configuración */
+.config-container {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+}
+
+.btn-config {
+    background-color: rgba(255, 255, 255, 0.1);
+    color: white;
+    border: 2px solid white;
+    padding: 0.75rem 1.25rem;
+    border-radius: 50px;
+    cursor: pointer;
+    font-size: 1.1rem;
+    transition: var(--transition);
+}
+
+.btn-config:hover {
+    background-color: rgba(255, 255, 255, 0.3);
+    transform: scale(1.05); /* Pequeño aumento al pasar el mouse */
+}
+
+/* Main Content */
+.main-content {
+    padding: 30px; /* Aumenta el padding */
+}
+
+/* Info Section */
+.info {
+    background-color: #e2f7e9; /* Verde muy claro */
+    padding: 25px;
+    border-radius: 12px;
+    margin-bottom: 30px;
+    text-align: center;
+    box-shadow: var(--shadow);
+}
+
+.info p {
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+    color: var(--color-primary); /* Color primario para resaltar */
+}
+
+/* Lista de Proyectos */
+.lista-proyectos {
+    background-color: white;
+    padding: 3rem;
+    border-radius: 20px;
+    box-shadow: var(--shadow);
+}
+
+.lista-proyectos h2 {
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+    color: var(--color-primary);
+    text-transform: uppercase; /* Texto en mayúsculas */
+    letter-spacing: 1px; /* Espaciado entre letras */
+}
+
+.lista-proyectos table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 1.5rem;
+    border-radius: 10px; /* Bordes redondeados */
+    overflow: hidden; /* Para que los bordes redondeados funcionen */
+}
+
+.lista-proyectos table th,
+.lista-proyectos table td {
+    border: none; /* Elimina los bordes */
+    padding: 15px;
+    text-align: left;
+}
+
+.lista-proyectos table th {
+    background-color: var(--color-primary);
+    color: white;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.lista-proyectos table tbody tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+.lista-proyectos table tbody tr:hover {
+    background-color: #e0e0e0;
+    transition: background-color 0.3s ease;
+}
+
+/* Estilos para el enlace "Ver Eventos" en la página de historial de participación */
+.historial table td a[href*="eventosProyectos.php"] {
+    background-color: var(--color-secondary); /* Verde secundario */
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: var(--transition);
+    display: inline-block;
+}
+
+.historial table td a[href*="eventosProyectos.php"]:hover {
+    background-color: var(--color-primary); /* Verde primario */
+    transform: translateY(-2px);
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
+}
+
+/* Panel de configuración deslizante */
+.config-panel {
+    position: fixed;
+    top: 0;
+    right: -300%;
+    width: 300%;
+    max-width: 450px; /* Aumenta el ancho */
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.95); /* Fondo semi-transparente */
+    box-shadow: -4px 0 8px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+    transition: right 0.4s ease-in-out; /* Transición más suave */
+    overflow-y: auto;
+    visibility: hidden;
+}
+
+.config-panel.show {
+    right: 0;
+    visibility: visible;
+}
+
+.config-content {
+    padding: 30px;
+}
+
+.config-content h2 {
+    font-size: 2.2rem;
+    margin-bottom: 25px;
+    color: var(--color-primary);
+    text-align: center;
+}
+
+.config-content ul {
+    list-style: none;
+    padding: 0;
+}
+
+.config-content ul li {
+    margin-bottom: 15px;
+}
+
+.config-content ul li a {
+    color: var(--color-text);
+    text-decoration: none;
+    font-size: 1.1rem;
+    transition: color 0.3s ease;
+    display: block;
+    padding: 10px 15px;
+    border-radius: 5px;
+}
+
+.config-content ul li a:hover {
+    color: var(--color-primary);
+    background-color: #f0f0f0;
+}
+
+.close-config {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background: none;
+    border: none;
+    font-size: 1.8rem;
+    color: var(--color-text);
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.close-config:hover {
+    color: #e74c3c;
+}
+
+/* Botones */
+.btn-inscribirse,
+.btn-volver {
+    background-color: var(--color-secondary);
+    color: white;
+    border: none;
+    padding: 1rem 1.5rem;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: var(--transition);
+    font-size: 1.1rem;
+    box-shadow: var(--shadow);
+    text-decoration: none;
+    display: inline-block;
+}
+
+.btn-inscribirse:hover,
+.btn-volver:hover {
+    background-color: var(--color-primary);
+    transform: translateY(-3px);
+}
+
+.btn-inscribirse:disabled {
+    background-color: #ccc;
+    color: #666;
+    cursor: not-allowed;
+    box-shadow: none;
+    transform: none;
+}
+
+/* Mensajes */
+.mensaje-exito {
+    background-color: #d4edda;
+    color: #155724;
+    border: 1px solid #c3e6cb;
+    padding: 1rem 1.5rem;
+    margin-bottom: 1.5rem;
+    border-radius: 8px;
+}
+
+.mensaje-error {
+    background-color: #f8d7da;
+    color: #721c24;
+    border: 1px solid #f5c6cb;
+    padding: 1rem 1.5rem;
+    margin-bottom: 1.5rem;
+    border-radius: 8px;
+}
+
+.ranking-insignias {
+    background-color: white;
+    padding: 2rem;
+    border-radius: 15px;
+    box-shadow: var(--shadow);
+}
+
+.ranking-insignias h2 {
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+    color: var(--color-primary);
+}
+
+.ranking-insignias ol {
+    list-style: decimal;
+    padding-left: 2rem;
+}
+
+.ranking-insignias li {
+    margin-bottom: 0.5rem;
+}
+
+.insignias-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.insignia-imagen {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    object-fit: cover;
+    box-shadow: var(--shadow);
+}
+
+/* Estilos para la página de editar perfil */
+.editar-perfil {
+    background-color: white;
+    padding: 2rem;
+    border-radius: 15px;
+    box-shadow: var(--shadow);
+}
+
+.editar-perfil h2 {
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+    color: var(--color-primary);
+}
+
+.editar-perfil label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: bold;
+}
+
+.editar-perfil input[type="text"],
+.editar-perfil input[type="email"],
+.editar-perfil input[type="password"] {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    margin-bottom: 1rem;
+}
+
+.editar-perfil .btn-guardar {
+    background-color: var(--color-primary);
+    color: white;
+    padding: 0.75rem 1.25rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.editar-perfil .btn-guardar:hover {
+    background-color: var(--color-secondary);
+}
+
+/* Estilos para la página de cambiar contraseña */
+.cambiar-contraseña {
+    background-color: white;
+    padding: 2rem;
+    border-radius: 15px;
+    box-shadow: var(--shadow);
+}
+
+.cambiar-contraseña h2 {
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+    color: var(--color-primary);
+}
+
+.cambiar-contraseña label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: bold;
+}
+
+.cambiar-contraseña input[type="password"] {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    margin-bottom: 1rem;
+}
+
+.cambiar-contraseña .btn-guardar {
+    background-color: var(--color-primary);
+    color: white;
+    padding: 0.75rem 1.25rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.cambiar-contraseña .btn-guardar:hover {
+    background-color: var(--color-secondary);
+}
+
+/* Estilos para el botón "Confirmar Asistencia" */
+.btn-confirmar {
+    background-color: var(--color-secondary);
+    color: white;
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.btn-confirmar:hover {
+    background-color: var(--color-primary);
+}
+
+
+/* Responsive */
+@media (max-width: 768px) {
+    .header h1 {
+        font-size: 2.5rem;
+    }
+
+    .config-container {
+        position: static;
+        text-align: center;
+        margin-top: 1rem;
+    }
+
+    .btn-config {
+        display: block;
+        margin: 0.5rem auto;
+    }
+
+    .lista-proyectos table {
+        font-size: 0.9rem;
+    }
+
+    .lista-proyectos table th,
+    .lista-proyectos table td {
+        padding: 10px;
+    }
+}
+
+/* Ajustes para la tabla en dispositivos móviles */
+@media (max-width: 600px) {
+    .lista-proyectos table {
+        display: block;
+        overflow-x: auto;
+    }
+
+    .lista-proyectos table thead {
+        display: none;
+    }
+
+    .lista-proyectos table tbody tr {
+        display: block;
+        margin-bottom: 1.5rem;
+        border: 1px solid #ddd;
+        border-radius: 10px;
+    }
+
+    .lista-proyectos table td {
+        display: block;
+        text-align: right;
+        padding-left: 50%;
+        position: relative;
+        border: none;
+    }
+
+    .lista-proyectos table td:before {
+        content: attr(data-label);
+        position: absolute;
+        left: 0;
+        width: 50%;
+        padding-left: 10px;
+        font-weight: bold;
+        text-align: left;
+    }
+}

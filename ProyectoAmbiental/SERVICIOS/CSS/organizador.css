@@ -1,0 +1,780 @@
+/* Variables globales */
+:root {
+    --color-primary: #27ae60; /* Verde esmeralda */
+    --color-secondary: #2ecc71; /* Verde más claro */
+    --color-accent: #f1c40f; /* Amarillo */
+    --color-text: #333; /* Gris oscuro */
+    --color-light: #f5f5f5; /* Gris claro */
+    --color-dark: #222; /* Negro */
+    --shadow: 0 4px 8px rgba(0, 0, 0, 0.15); /* Sombra más pronunciada */
+    --transition: all 0.3s ease-in-out; /* Transición suave */
+}
+
+/* General */
+body {
+    font-family: 'Arial', sans-serif; /* Fuente más común */
+    margin: 0;
+    padding: 0;
+    background-color: var(--color-light);
+    color: var(--color-text);
+    line-height: 1.7; /* Aumenta el espaciado entre líneas */
+}
+
+.contenedor {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Header */
+.header {
+    background: linear-gradient(rgba(40, 180, 99, 0.8), rgba(39, 174, 96, 0.8)),
+                url('../../img/nature-bg.jpg') center/cover;
+    min-height: 25vh; /* Aumenta la altura */
+    display: flex;
+    align-items: center;
+    text-align: center;
+    color: white;
+    position: relative;
+    padding: 2rem 0;
+    border-bottom: 5px solid var(--color-accent); /* Línea inferior llamativa */
+}
+
+.header .contenedor {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.header h1 {
+    font-size: 3rem; /* Aumenta el tamaño del título */
+    margin-bottom: 0.5rem;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3); /* Sombra en el texto */
+}
+
+.header p {
+    font-size: 1.3rem;
+    margin-bottom: 1rem;
+    font-style: italic; /* Texto en itálica */
+}
+
+/* Contenedor del botón de configuración */
+.config-container {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+}
+
+.btn-config {
+    background-color: rgba(255, 255, 255, 0.1);
+    color: white;
+    border: 2px solid white;
+    padding: 0.75rem 1.25rem;
+    border-radius: 50px;
+    cursor: pointer;
+    font-size: 1.1rem;
+    transition: var(--transition);
+}
+
+.btn-config:hover {
+    background-color: rgba(255, 255, 255, 0.3);
+    transform: scale(1.05); /* Pequeño aumento al pasar el mouse */
+}
+
+/* Main Content */
+.main-content {
+    padding: 30px; /* Aumenta el padding */
+}
+
+/* Info Section */
+.info {
+    background-color: #e2f7e9; /* Verde muy claro */
+    padding: 25px;
+    border-radius: 12px;
+    margin-bottom: 30px;
+    text-align: center;
+    box-shadow: var(--shadow);
+}
+
+.info p {
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+    color: var(--color-primary); /* Color primario para resaltar */
+}
+
+/* Lista de Proyectos */
+.lista-proyectos {
+    background-color: white;
+    padding: 3rem;
+    border-radius: 20px;
+    box-shadow: var(--shadow);
+}
+
+.lista-proyectos h2 {
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+    color: var(--color-primary);
+    text-transform: uppercase; /* Texto en mayúsculas */
+    letter-spacing: 1px; /* Espaciado entre letras */
+}
+
+.lista-proyectos table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 1.5rem;
+    border-radius: 10px; /* Bordes redondeados */
+    overflow: hidden; /* Para que los bordes redondeados funcionen */
+}
+
+.lista-proyectos table th,
+.lista-proyectos table td {
+    border: none; /* Elimina los bordes */
+    padding: 15px;
+    text-align: left;
+}
+
+.lista-proyectos table th {
+    background-color: var(--color-primary);
+    color: white;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.lista-proyectos table tbody tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+.lista-proyectos table tbody tr:hover {
+    background-color: #e0e0e0;
+    transition: background-color 0.3s ease;
+}
+
+/* Estilos para la sección de eventos */
+.eventos {
+    background-color: white;
+    padding: 2rem;
+    border-radius: 15px;
+    box-shadow: var(--shadow);
+}
+
+.eventos h2 {
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+    color: var(--color-primary);
+}
+
+.eventos table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 1rem;
+}
+
+.eventos table th,
+.eventos table td {
+    border: 1px solid #ddd;
+    padding: 10px;
+    text-align: left;
+}
+
+.eventos table th {
+    background-color: var(--color-primary);
+    color: white;
+}
+
+.eventos table tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+.eventos table tr:hover {
+    background-color: #f1f1f1;
+}
+
+/* Estilos para los botones de editar y eliminar eventos */
+.btn-editar-evento,
+.btn-eliminar-evento {
+    color: white; /* Texto blanco */
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: var(--transition);
+    margin: 0 0.25rem;
+}
+
+.btn-editar-evento {
+    background-color: var(--color-secondary); /* Verde secundario */
+}
+
+.btn-editar-evento:hover {
+    background-color: var(--color-primary); /* Verde primario al pasar el mouse */
+}
+
+.btn-eliminar-evento {
+    background-color: #e74c3c; /* Rojo para eliminar */
+}
+
+.btn-eliminar-evento:hover {
+    background-color: #c0392b; /* Rojo más oscuro al pasar el mouse */
+}
+
+
+
+.btn-agregar-evento {
+    background-color: var(--color-secondary);
+    color: white;
+    border: none;
+    padding: 0.75rem 1.25rem;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.btn-agregar-evento:hover {
+    background-color: var(--color-primary);
+}
+
+/* Botones */
+.btn-cta {
+    background-color: var(--color-secondary);
+    color: white;
+    border: none;
+    padding: 1rem 1.5rem;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: var(--transition);
+    font-size: 1.1rem;
+    box-shadow: var(--shadow);
+    text-decoration: none;
+    display: inline-block;
+}
+
+.btn-cta:hover {
+    background-color: var(--color-primary);
+    transform: translateY(-3px);
+}
+
+/* Modales */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+    overflow-y: auto;
+    align-items: center;
+    justify-content: center;
+}
+
+.modal-content {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    width: 90%;
+    max-width: 500px;
+    box-shadow: var(--shadow);
+    position: relative;
+    margin: 2rem;
+}
+
+.modal-content h2 {
+    margin-top: 0;
+    font-size: 1.8rem;
+    color: var(--color-primary);
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.modal-content label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: var(--color-text);
+}
+
+.modal-content input,
+.modal-content textarea,
+.modal-content select {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 1rem;
+    box-sizing: border-box;
+}
+
+.modal-content textarea {
+    resize: vertical;
+    height: 120px;
+}
+
+.close-modal {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 1.5rem;
+    color: var(--color-text);
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.close-modal:hover {
+    color: #e74c3c;
+}
+
+/* Panel de configuración deslizante */
+.config-panel {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 100%;
+    max-width: 450px; /* Aumenta el ancho */
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.95); /* Fondo semi-transparente */
+    box-shadow: -4px 0 8px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+    transition: right 0.4s ease-in-out; /* Transición más suave */
+    overflow-y: auto;
+    visibility: hidden;
+}
+
+.config-panel.show {
+    right: 0;
+    visibility: visible;
+}
+
+.config-content {
+    padding: 30px;
+}
+
+.config-content h2 {
+    font-size: 2.2rem;
+    margin-bottom: 25px;
+    color: var(--color-primary);
+    text-align: center;
+}
+
+.config-content ul {
+    list-style: none;
+    padding: 0;
+}
+
+.config-content ul li {
+    margin-bottom: 15px;
+}
+
+.config-content ul li a {
+    color: var(--color-text);
+    text-decoration: none;
+    font-size: 1.1rem;
+    transition: color 0.3s ease;
+    display: block;
+    padding: 10px 15px;
+    border-radius: 5px;
+}
+
+.config-content ul li a:hover {
+    color: var(--color-primary);
+    background-color: #f0f0f0;
+}
+
+.close-config {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background: none;
+    border: none;
+    font-size: 1.8rem;
+    color: var(--color-text);
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.close-config:hover {
+    color: #e74c3c;
+}
+
+/* Estilos para el botón "Ver/Editar Eventos" */
+.lista-proyectos table td a[href*="eventosOrganizador.php"] {
+    background-color: var(--color-secondary); /* Verde secundario */
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: var(--transition);
+    display: inline-block;
+}
+
+.lista-proyectos table td a[href*="eventosOrganizador.php"]:hover {
+    background-color: var(--color-primary); /* Verde primario */
+    transform: translateY(-2px);
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
+}
+
+/* Estilos para el botón "Volver" */
+.btn-volver {
+    background-color: var(--color-secondary);
+    color: white;
+    border: none;
+    padding: 1rem 1.5rem;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: var(--transition);
+    font-size: 1.1rem;
+    box-shadow: var(--shadow);
+    text-decoration: none;
+    display: inline-block;
+}
+
+.btn-volver:hover {
+    background-color: var(--color-primary);
+    transform: translateY(-3px);
+}
+
+/* Estilos para la página de proyectos del organizador (historialProyectos.php) */
+.proyectos {
+    background-color: white;
+    padding: 2rem;
+    border-radius: 15px;
+    box-shadow: var(--shadow);
+}
+
+.proyectos h2 {
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+    color: var(--color-primary);
+}
+
+.proyectos table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 1rem;
+}
+
+.proyectos table th,
+.proyectos table td {
+    border: 1px solid #ddd;
+    padding: 10px;
+    text-align: left;
+}
+
+.proyectos table th {
+    background-color: var(--color-primary);
+    color: white;
+}
+
+.proyectos table tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+.proyectos table tr:hover {
+    background-color: #f1f1f1;
+}
+
+/* Estilos para la página de verificación de asistencia */
+.tabla-voluntarios {
+    width: 100%;
+    border-collapse: collapse;
+    background: white;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    margin-top: 2rem;
+}
+
+.tabla-voluntarios thead {
+    background-color: var(--color-primary);
+    color: white;
+}
+
+.tabla-voluntarios th {
+    padding: 15px;
+    text-align: left;
+    font-weight: 600;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.tabla-voluntarios td {
+    padding: 12px 15px;
+    border-bottom: 1px solid #eee;
+}
+
+.tabla-voluntarios tbody tr:hover {
+    background-color: #f8f9fa;
+}
+
+.tabla-voluntarios .nombre-voluntario {
+    font-weight: 500;
+}
+
+.tabla-voluntarios .apellidos {
+    color: #495057;
+}
+
+.tabla-voluntarios .nombres {
+    color: #6c757d;
+    margin-left: 5px;
+}
+
+.voluntario-info {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+/* Estilos para los badges */
+.badge {
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 500;
+    display: inline-block;
+}
+
+.badge-confirmado {
+    background-color: #d4edda;
+    color: #155724;
+}
+
+.badge-pendiente {
+    background-color: #fff3cd;
+    color: #856404;
+}
+
+.badge-puntos {
+    background-color: #e9ecef;
+    color: #495057;
+    font-weight: bold;
+}
+
+/* Estilos para los botones de acción */
+.btn-confirmar {
+    background-color: #28a745;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    font-size: 0.9rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.btn-confirmar:hover {
+    background-color: #218838;
+    transform: translateY(-1px);
+}
+
+.btn-confirmar i {
+    font-size: 0.8rem;
+}
+
+.confirmado-por {
+    color: #28a745;
+    font-size: 0.9rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+}
+
+/* Estilos para las estadísticas */
+.stats-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.5rem;
+    margin: 2rem 0;
+}
+
+.stat-box {
+    background: white;
+    padding: 1.5rem;
+    border-radius: 8px;
+    text-align: center;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    transition: transform 0.2s ease;
+}
+
+.stat-box:hover {
+    transform: translateY(-3px);
+}
+
+.stat-box h3 {
+    color: #6c757d;
+    font-size: 0.9rem;
+    margin-bottom: 0.5rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.stat-box p {
+    color: var(--color-primary);
+    font-size: 2rem;
+    font-weight: bold;
+    margin: 0;
+}
+
+/* Estilos para las alertas */
+.alert {
+    padding: 1rem;
+    margin: 1rem 0;
+    border-radius: 4px;
+    text-align: center;
+    animation: fadeIn 0.3s ease-in;
+}
+
+.alert-success {
+    background-color: #d4edda;
+    color: #155724;
+    border: 1px solid #c3e6cb;
+}
+
+.alert-error {
+    background-color: #f8d7da;
+    color: #721c24;
+    border: 1px solid #f5c6cb;
+}
+
+/* Añadir estos estilos */
+.btn-confirmar.btn-disabled {
+    background-color: #cccccc;
+    cursor: not-allowed;
+    opacity: 0.7;
+}
+
+.btn-confirmar.btn-disabled:hover {
+    background-color: #cccccc;
+    transform: none;
+}
+
+@keyframes fadeIn {
+    from { 
+        opacity: 0; 
+        transform: translateY(-10px); 
+    }
+    to { 
+        opacity: 1; 
+        transform: translateY(0); 
+    }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .stats-container {
+        grid-template-columns: 1fr;
+    }
+
+    .tabla-voluntarios {
+        display: block;
+        overflow-x: auto;
+    }
+
+    .tabla-voluntarios th,
+    .tabla-voluntarios td {
+        min-width: 120px;
+    }
+
+    .voluntario-info {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+}
+
+@media (max-width: 576px) {
+    .stat-box {
+        padding: 1rem;
+    }
+
+    .stat-box h3 {
+        font-size: 0.8rem;
+    }
+
+    .stat-box p {
+        font-size: 1.5rem;
+    }
+
+    .badge {
+        padding: 4px 8px;
+        font-size: 0.8rem;
+    }
+
+    .btn-confirmar {
+        padding: 6px 12px;
+        font-size: 0.8rem;
+    }
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .header h1 {
+        font-size: 2.5rem;
+    }
+
+    .config-container {
+        position: static;
+        text-align: center;
+        margin-top: 1rem;
+    }
+
+    .btn-config {
+        display: block;
+        margin: 0.5rem auto;
+    }
+
+    .lista-proyectos table {
+        font-size: 0.9rem;
+    }
+
+    .lista-proyectos table th,
+    .lista-proyectos table td {
+        padding: 10px;
+    }
+}
+
+/* Ajustes para la tabla en dispositivos móviles */
+@media (max-width: 600px) {
+    .lista-proyectos table {
+        display: block;
+        overflow-x: auto;
+    }
+
+    .lista-proyectos table thead {
+        display: none;
+    }
+
+    .lista-proyectos table tbody tr {
+        display: block;
+        margin-bottom: 1.5rem;
+        border: 1px solid #ddd;
+        border-radius: 10px;
+    }
+
+    .lista-proyectos table td {
+        display: block;
+        text-align: right;
+        padding-left: 50%;
+        position: relative;
+        border: none;
+    }
+
+    .lista-proyectos table td:before {
+        content: attr(data-label);
+        position: absolute;
+        left: 0;
+        width: 50%;
+        padding-left: 10px;
+        font-weight: bold;
+        text-align: left;
+    }
+}
